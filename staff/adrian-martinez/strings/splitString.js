@@ -13,7 +13,7 @@ function splitString(string, separator){
                 acumulateString = "";
             }
         }
-        if(separator.length > 1){
+   /*      if(separator.length > 1){
 
             var separatorCompare = "";
             for(let j = i;j < separator.length + i;j++){
@@ -27,7 +27,7 @@ function splitString(string, separator){
             }
             else
                 acumulateString += string[i];
-        }
+        } */
         if(string[i] == separator){
                     //    0 -> result[0]
                     //    1 -> result[1]
@@ -52,12 +52,12 @@ console.log({expected: ["Pilas","Juguetes","Baterías","Drones","PerrosRobot"], 
 console.log("CASE 2: It should return elements that are separated by a hyphen including the last element if it does not have a trailing hyphen.\n");
 let cadena2 = "Pilas-Juguetes-Baterías-Drones-PerrosRobot";
 cadena2 + "-" //No sería una buena práctica. No debería modicar la cadena fuera de la función
-var result = splitString(cadena, "-"); 
+var result = splitString(cadena2, "-"); 
 
 console.log({expected: ["Pilas","Juguetes","Baterías","Drones","PerrosRobot"], received: result});
 
 console.log("CASE 3: It should return elements that are separated by a hyphen including the last element if it does not have a trailing hyphen.\n");
 let cadena3 = "Pilas - Juguetes - Baterías - Drones - PerrosRobot";
-var result = splitString(cadena, " - ");
+var result = splitString(cadena3, " - ");
 
 console.log({expected: ["Pilas","Juguetes","Baterías","Drones","PerrosRobot"], received: result})
