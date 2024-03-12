@@ -5,7 +5,7 @@ function splitString(string, separator){
 
     for(let i=0;i < string.length;i++){
 
-        //El primer if no sé si funcionaría
+        //El segundo if funciona pero no debe añadir al array el separador. Faltaría eso de arreglar
         if(separator.length == 3){
             if(string[i] == separator[0] && string[i+1] == separator[1] && string[i+2] == separator[2]){
 
