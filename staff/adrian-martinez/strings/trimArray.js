@@ -10,7 +10,7 @@ function trim(object, element){
 
     var cleanElement = ''
     var result = "";
-    for(let i=0;i < object.length;i++){´
+    for(let i=0;i < object.length;i++){
         // for invertido para limpiar espacios del final
         var resultB = ''
         for(let j=0; j < object[i].length;j++){
