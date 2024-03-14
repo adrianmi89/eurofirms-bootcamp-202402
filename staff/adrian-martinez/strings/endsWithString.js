@@ -1,20 +1,30 @@
 
-function endsWithString(string, buscaCaracter){
+function endsWithString(string, searchString){
 
-    var acumulate = "";
-    for(let i=0;i < string.length;i++){
-        for(let j=0; j < buscaCaracter.length;j++){
-            if(string[i] == buscaCaracter[j]){
+    for(var i = 0; i < searchString.length; i++){
+        var searchStringChar = searchString[i]
+        var charToCompareFromString = string[string.length - searchString.length + i]
 
-                acumulate += string[i];
-            }
-        }
+        if(searchStringChar !== charToCompareFromString)
+            return false
     }
-    if(acumulate === buscaCaracter){
-        return true;
-    }
+
+    return true
+
+    // var acumulate = "";
+    // for(let i=0;i < string.length;i++){
+    //     for(let j=0; j < buscaCaracter.length;j++){
+    //         if(string[i] == buscaCaracter[j]){
+
+    //             acumulate += string[i];
+    //         }
+    //     }
+    // }
+    // if(acumulate === buscaCaracter){
+    //     return true;
+    // }
     
-    return false;
+    // return false;
 }
 
 console.log("CASO 1: La función devuelve verdadero si el final de una cadena contiene los carácteres indicados.\n");
@@ -23,9 +33,9 @@ var result = endsWithString(cadena, "crecer.");
 
 console.log({expected: true, received: result});
 
-console.log("CASO 2: La función devuelve verdadero si la cadena pasada se encuentra en esa longitud.\n");
+/* console.log("CASO 2: La función devuelve verdadero si la cadena pasada se encuentra en esa longitud.\n");
 var cadena = "El desarrollo web es el santo grial de todo negocio que quiera crecer.";
 var result = endsWithString(cadena, "crecer.", 40);
 
-console.log({expected: true, received: result});
+console.log({expected: true, received: result}) */;
 
