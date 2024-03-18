@@ -4,6 +4,9 @@
 
 var numbers2 = [0, 12, 5, 40, 6, 7, 24, 13, 21]
 
+console.log("\nCASE 1: Debemos devolver una copia del array pero que solo contenga los números impares.\n");
+console.log({expected: "[5, 7, 13, 21]", received: result});
+
 // --------------------------------------------------
 
 // crea un nuevo array con los elementos que tienen 2 palabras
