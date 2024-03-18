@@ -8,7 +8,8 @@ var buscarNumero = numbers.find(function(numero){
 })
 
 console.log("Array original -> "+ numbers);
-console.log("Result -> "+ buscarNumero);
+console.log("\nCASE 1: Debemos devolver los números mayores a 20.\n");
+console.log({expected: 30, received: buscarNumero});
 
 // --------------------------------------------------
 
@@ -21,7 +22,8 @@ var buscarPalabra = strings.find(function(palabra){
 })
 
 console.log("\nArray original -> "+ strings);
-console.log("Result -> "+ buscarPalabra);
+console.log("\nCASE 2: Debemos devolver la primera palabra que incluya la letra u.\n");
+console.log({expected: "mundo", received: buscarPalabra});
 
 // --------------------------------------------------
 
@@ -34,7 +36,8 @@ var buscarImpar = numbers2.find(function(numero){
 })
 
 console.log("\nArray original -> "+ numbers2);
-console.log("Result -> "+ buscarImpar);
+console.log("\nCASE 3: Debemos devolver el primer número impar que esté en el array.\n");
+console.log({expected: 7, received: buscarImpar});
 
 // --------------------------------------------------
 
@@ -47,12 +50,16 @@ var users = [
     { name: 'pinocho', email: 'pin@ocho.com' },
 ]
 
-var buscarEmail = users.find(function(user){
-    return user.email === "wendy@darling.com";
+var buscarEmail = users.find(function(users){
+    return users.email === "wend@darling.com";
 })
 
-console.log("\nArray original -> "+ users);
-console.log("Result -> "+ buscarEmail);
+if(buscarEmail){
+    var result = buscarEmail.email;
+}
+
+console.log("\nCASE 4: Debemos devolver el primer correo encontrado si existe en el array de objectos.\n");
+console.log({expected: "wendy@darling.com", received: result});
 
 // --------------------------------------------------
 
@@ -84,3 +91,13 @@ var users2 = [
         }
     }
 ]
+
+var encuentraCiudad = users2.find(function(users){
+    return users.information.city == "Barcelona";
+})
+
+if(encuentraCiudad){
+    var result = encuentraCiudad.name;
+}
+console.log("\nCASE 5: Debemos devolver el primer usuario que vive en Barcelona.\n");
+console.log({expected: "wendy", received: result});
