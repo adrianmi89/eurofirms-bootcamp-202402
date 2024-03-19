@@ -2,7 +2,22 @@
 // usando el indexOf, encuenta el numero 30
 // ahora usando el splice, borralo
 
-var numbers = [10, 20, 30, 40, 50, 60]
+var numbers = [10, 20, 30, 40, 50, 60];
+
+var encuentraNum = numbers.indexOf(30);
+/* var encuentraNum = numbers.indexOf(function(num){
+    return num == 30;
+}) */
+
+if(encuentraNum != -1){
+    numbers.splice(encuentraNum, 1);
+}
+else{
+    console.log("Número no encontrado");
+}
+
+console.log("\nCASE 1: Debemos devolver 30 si se encuentra en el array, usando indexOff() y splice().\n");
+console.log({expected: "[10, 20, 40, 50, 60]", received: numbers});
 
 //--------------------------------------------------
 
