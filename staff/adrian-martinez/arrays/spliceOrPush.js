@@ -18,27 +18,25 @@ var users = [
 ]
 
 var encuentraUsuario = users.find(function (user){
-    return user.id == "5t45e5i";
+    return user.id === "5t45e5i";
 })
 //console.log(encuentraUsuario);
 
-var {id, saved} = encuentraUsuario;
+var {saved} = encuentraUsuario;
 
-var addID;
-var modificaPost = saved.forEach(function (elemento){
+var modificaPost = saved.indexOf(function (elemento){
     
-    if(elemento == id){
+    var post = "grghejh4";
+    if(elemento === post){
 
-        addID = id;
+        return elemento === post;
     }
-    
-    return elemento == id;
 })
 console.log(modificaPost);
 
 //Si el id está en la lista lo borramos y si no está se lo añadimos al final
-if(modificaPost !== undefined){
-    saved.splice(addID, 1);
+if(modificaPost){
+    saved.splice(modificaPost, 1);
 }
 else{
     saved.push(id);
