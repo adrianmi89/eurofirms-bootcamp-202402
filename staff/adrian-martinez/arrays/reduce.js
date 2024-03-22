@@ -18,11 +18,28 @@ console.log({expected: "128", received: result});
 
 var numbers2 = [1, 12, 5, 40, 6, 7, 24, 13, 21]
 
+var multiplicaNum = numbers2.reduce(function(acumulator, currentValue){
+    return acumulator * currentValue;
+})
+
+var result = multiplicaNum;
+
+console.log("\nCASE 2: Debemos multiplicar todos los números del array.\n");
+console.log({expected: "660441600", received: result});
 //------------------------------------------------
 
 //  suma todos los numeros del array, dando un valor inicial de 10
 
 var numbers3 = [0, 12, 5, 40, 6, 7, 24, 13, 21]
+
+var sumConValorInicial = numbers3.reduce(function(acumulator, currentValue){
+    return acumulator + currentValue;
+}, 10)
+
+var result = sumConValorInicial;
+
+console.log("\nCASE 3: Debemos sumar todos los números del array a partir de un valor inicial de 10.\n");
+console.log({expected: "138", received: result});
 
 //------------------------------------------------
 
@@ -30,6 +47,15 @@ var numbers3 = [0, 12, 5, 40, 6, 7, 24, 13, 21]
 // dando un valor inicial de 'Hola'
 
 var strings = ['mundo', 'pepito', 'como', 'va todo']
+
+var cadenaConValorIncial = strings.reduce(function(acumulator,currentValue){
+    return acumulator += currentValue +" ";
+}, "Hola ");
+
+var result = cadenaConValorIncial;
+
+console.log("\nCASE 4: Debemos sumar todos los números del array a partir de un valor inicial de 10.\n");
+console.log({expected: "[Hola pepito como te va todo]", received: result});
 
 //------------------------------------------------
 
@@ -42,6 +68,21 @@ var users = [
     { id: 'djn5gje', name: 'pinocho', email: 'pin@ocho.com', saved: [] },
 ]
 
+//Pendiente
+/* var arrayConFiltro = users.reduce(function(user,acumulator, currentValue){
+
+    if(user.include( "pe")){
+        acumulator += user.name;
+    }
+    return  acumulator;
+})
+console.log(arrayConFiltro);
+
+var result = arrayConFiltro; */
+
+console.log("\nCASE 5: Debemos juntar en un segundo array aquellos usuarios que empiezen por 'pe'.\n");
+console.log({expected: "[Hola pepito como te va todo]", received: result});
+
 //------------------------------------------------
 
 // haz un array que contenga cada uno de los usuarios, pero solo con la propiedad name y email
@@ -53,6 +94,18 @@ var users2 = [
     { id: 'djn5gje', name: 'pinocho', email: 'pin@ocho.com', saved: [] },
 ]
 
+var listaNamesEmails = users2.map(function(user){
+    return "name: "+ user.name +", email: " + user.email;
+})
+console.log(listaNamesEmails);
+
+var result = listaNamesEmails;
+
+console.log("\nCASE 6: Debemos juntar en un segundo array los usuarios solo con las propiedades name y email'.\n");
+console.log({expected: "[{name: pepito, email: pepito@grillo.com}, ...]", received: result});
+
+
+
 //------------------------------------------------
 
 // en users3 esta el name como primer valor y surname como segundo del usuario,
@@ -60,6 +113,9 @@ var users2 = [
 
 var users3 = ['peter', 'pan']
 
+
+console.log("\nCASE 7: Debemos juntar en un segundo array los usuarios solo con las propiedades name y email'.\n");
+console.log({expected: "[{pepito},{peter}]", received: result});
 //------------------------------------------------
 
 // users4 es un array que contiene arrays, dentro de este segundo array, tenemos el name en primera posicion
