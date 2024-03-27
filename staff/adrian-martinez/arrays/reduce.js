@@ -26,6 +26,14 @@ var result = multiplicaNum;
 
 console.log("\nCASE 2: Debemos multiplicar todos los números del array.\n");
 console.log({expected: "660441600", received: result});
+var multiplicaNum = numbers2.reduce(function(acumulator, currentValue){
+    return acumulator * currentValue;
+})
+
+var result = multiplicaNum;
+
+console.log("\nCASE 2: Debemos multiplicar todos los números del array.\n");
+console.log({expected: "660441600", received: result});
 //------------------------------------------------
 
 //  suma todos los numeros del array, dando un valor inicial de 10
