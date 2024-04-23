@@ -1,23 +1,10 @@
-function paint(days, hours, minutes, seconds){
-
-    const htmlDays = document.querySelector("#days-value");
-    const htmlHours = document.querySelector("#hours-value");
-    const htmlMinutes = document.querySelector("#minutes-value");
-    const htmlSeconds = document.querySelector("#seconds-value");
-
-    htmlDays.innerText = days;
-    //Mediante el operador ternario le diremos que nos añada un 0 cuando el tiempo tenga solo un dígito
-    htmlHours.innerText = hours > 9 ? minutes : `0${ hours }`;
-    htmlMinutes.innerText = minutes > 9 ? seconds : `0${ minutes }`;
-    htmlSeconds.innerText = seconds > 9 ? seconds : `0${ seconds }`;
-}
+const DOOMS_DAY = 2147483647;
 
 function updateCountDown(){
 
     const actualDate = Date.now() / 1000;
-    const doomsDay = 2147483647;
 
-    const secondsLeft = doomsDay - actualDate;
+    const secondsLeft = DOOMS_DAY - actualDate;
     const minutesLeft = secondsLeft / 60;
     const hoursLeft = minutesLeft / 60;
     const daysLeft = hoursLeft / 24;
@@ -27,14 +14,34 @@ function updateCountDown(){
     const hoursLeftToPrint = Math.floor(hoursLeft % 60);
     const daysLeftToPrint = Math.floor(daysLeft);
 
-    return { daysLeftToPrint, hoursLeftToPrint, minutesLeftToPrint, secondsLeftToPrint };
+    const timeLeft = {
+        days: daysLeftToPrint,
+        hours: hoursLeftToPrint,
+        minutes: minutesLeftToPrint, 
+        seconds: secondsLeftToPrint
+    }
+
+    return timeLeft
 }
 
+function paintClock(timeLeft){
+    const {days, hours, minutes, seconds} = timeLeft
+
+    const htmlDays = document.querySelector("#days-value");
+    const htmlHours = document.querySelector("#hours-value");
+    const htmlMinutes = document.querySelector("#minutes-value");
+    const htmlSeconds = document.querySelector("#seconds-value");
+
+    htmlDays.innerText = days;
+    //Mediante el operador ternario le diremos que nos añada un 0 cuando el tiempo tenga solo un dígito
+    htmlHours.innerText = hours > 9 ? hours : `0${ hours }`;
+    htmlMinutes.innerText = minutes > 9 ? minutes : `0${ minutes }`;
+    htmlSeconds.innerText = seconds > 9 ? seconds : `0${ seconds }`;
+}
 setInterval(() => {
 
     const timeLeft = updateCountDown();
-    const { daysLeftToPrint, hoursLeftToPrint, minutesLeftToPrint, secondsLeftToPrint } = timeLeft;
 
-    paint( daysLeftToPrint, hoursLeftToPrint, minutesLeftToPrint, secondsLeftToPrint );
+    paintClock( timeLeft );
 }, 1000)
 
